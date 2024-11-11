@@ -137,15 +137,10 @@ def eliminar_variables_irrelevantes(df):
 def eliminar_outliers(X):
     #Se asigna valor nulo a los atípicos
     X.loc[~X["Academic Pressure"].isin([1, 2, 3, 4, 5, -1]), "Academic Pressure"] = np.nan
-    X.loc[~X["CGPA"].isin([0,1,2,3,4,5,6,7,8,9,10,-1]), "CGPA"] = np.nan
     X.loc[~X["Work Pressure"].isin([1, 2, 3, 4, 5, -1]), "Work Pressure"] = np.nan
-    X.loc[~X["Study Satisfaction"].isin([1, 2, 3, 4, 5, -1]), "Study Satisfaction"] = np.nan
-    X.loc[~X["Job Satisfaction"].isin([1, 2, 3, 4, 5, -1]), "Job Satisfaction"] = np.nan
     X.loc[~X["Financial Stress"].isin([1, 2, 3, 4, 5]), "Financial Stress"] = np.nan
-    X.loc[~X['Sleep Duration'].isin(['Less than 5 hours', '5-8 hours', 'More than 8 hours']), 'Sleep Duration'] = np.nan
     X.loc[~X['Dietary Habits'].isin(['Healthy', 'Unhealthy', 'Moderate']), 'Dietary Habits'] = np.nan
     X.loc[~X['Degree'].isin(['Other', 'Class 12', 'B.Ed','B.Arch','B.Com','B.Pharm', 'BCA', 'M.Ed', 'MCA', 'BBA', 'BSc']), 'Degree'] = np.nan
     X.loc[~X['Profession'].isin(['Other', 'Teacher', 'Student','Content Writer']), 'Profession'] = np.nan
     X.loc[~X['Have you ever had suicidal thoughts ?'].isin(['Yes','No']), 'Have you ever had suicidal thoughts ?'] = np.nan
-    X.loc[~X['Family History of Mental Illness'].isin(['Yes','No']), 'Family History of Mental Illness'] = np.nan
     return X
