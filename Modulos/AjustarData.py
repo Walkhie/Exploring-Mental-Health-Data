@@ -132,12 +132,11 @@ class ReduccionCategorias(BaseEstimator, TransformerMixin):
     
 
 def eliminar_variables_irrelevantes(df):
-    return df.drop(['id','Name','Gender','Family History of Mental Illness','Sleep Duration','CGPA','Study Satisfaction','Job Satisfaction'], axis=1)
+    return df.drop(['id','Name','Gender','Family History of Mental Illness','Sleep Duration','CGPA','Study Satisfaction','Job Satisfaction','Work Pressure'], axis=1)
 
 def eliminar_outliers(X):
     #Se asigna valor nulo a los atípicos
     X.loc[~X["Academic Pressure"].isin([1, 2, 3, 4, 5, -1]), "Academic Pressure"] = np.nan
-    X.loc[~X["Work Pressure"].isin([1, 2, 3, 4, 5, -1]), "Work Pressure"] = np.nan
     X.loc[~X["Financial Stress"].isin([1, 2, 3, 4, 5]), "Financial Stress"] = np.nan
     X.loc[~X['Dietary Habits'].isin(['Healthy', 'Unhealthy', 'Moderate']), 'Dietary Habits'] = np.nan
     X.loc[~X['Degree'].isin(['Other', 'Class 12', 'B.Ed','B.Arch','B.Com','B.Pharm', 'BCA', 'M.Ed', 'MCA', 'BBA', 'BSc']), 'Degree'] = np.nan
